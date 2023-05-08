@@ -11,24 +11,28 @@ class _SubmitImageState extends State<SubmitImage> {
   @override
   Widget build(BuildContext context) {
     Image image = Image(
-      image: AssetImage('assets/images/default_person.png'),
+      image: const AssetImage('assets/images/default_person.png'),
       height: 340,
       width: MediaQuery.of(context).size.width,
     );
     return Scaffold(
+      // AppBar
       appBar: AppBar(
         toolbarHeight: 80,
         elevation: 0,
         backgroundColor: Colors.white,
-        title: Text(
+        title: const Text(
           'Face Registration',
           style: TextStyle(color: Colors.blue, fontSize: 30),
         ),
         centerTitle: true,
       ),
+      // Body
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+          // Demonstration Image
+          // ignore: sized_box_for_whitespace
           Container(
               height: 600,
               child: FittedBox(
@@ -38,9 +42,11 @@ class _SubmitImageState extends State<SubmitImage> {
           const SizedBox(
             height: 40,
           ),
+          // Buttons
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
+              // Retake Button
               GestureDetector(
                 child: Container(
                     width: 140,
@@ -48,7 +54,7 @@ class _SubmitImageState extends State<SubmitImage> {
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(14),
                         color: Colors.grey),
-                    child: Center(
+                    child: const Center(
                       child: Text(
                         'Retake',
                         style: TextStyle(color: Colors.white, fontSize: 16),
@@ -58,6 +64,7 @@ class _SubmitImageState extends State<SubmitImage> {
                   //retake function
                 },
               ),
+              // Submit button
               GestureDetector(
                 child: Container(
                     width: 140,
@@ -65,7 +72,7 @@ class _SubmitImageState extends State<SubmitImage> {
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(14),
                         color: Colors.green),
-                    child: Center(
+                    child: const Center(
                       child: Text(
                         'Submit',
                         style: TextStyle(color: Colors.white, fontSize: 16),
@@ -73,6 +80,7 @@ class _SubmitImageState extends State<SubmitImage> {
                     )),
                 onTap: () {
                   //pickImage();
+                  // Show Dialog for continuation
                   showDialog(
                       context: context,
                       builder: (BuildContext context) {
@@ -84,7 +92,8 @@ class _SubmitImageState extends State<SubmitImage> {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
-                                  Image(
+                                  // Submitted image                                
+                                  const Image(
                                     image:
                                         AssetImage('assets/images/check.png'),
                                     height: 175,
@@ -92,7 +101,8 @@ class _SubmitImageState extends State<SubmitImage> {
                                   const SizedBox(
                                     height: 10,
                                   ),
-                                  Text(
+                                  // Text telling that registeration is successfull
+                                  const Text(
                                     'Profile Registered Successfully',
                                     style: TextStyle(
                                         fontSize: 25,
@@ -101,6 +111,7 @@ class _SubmitImageState extends State<SubmitImage> {
                                   const SizedBox(
                                     height: 30,
                                   ),
+                                  // Button for moving forward
                                   GestureDetector(
                                     child: Container(
                                       width: MediaQuery.of(context).size.width -
@@ -110,7 +121,7 @@ class _SubmitImageState extends State<SubmitImage> {
                                           borderRadius:
                                               BorderRadius.circular(14),
                                           color: Colors.blue),
-                                      child: Center(
+                                      child: const Center(
                                         child: Text(
                                           "Let's Go",
                                           style: TextStyle(
@@ -123,14 +134,13 @@ class _SubmitImageState extends State<SubmitImage> {
                                       Navigator.pop(context);
                                       Navigator.pushNamed(
                                           context, '/home_page');
-                                      
                                     },
                                   ),
                                   TextButton(
                                       onPressed: () {
                                         Navigator.pop(context);
                                       },
-                                      child: Text(
+                                      child: const Text(
                                         'Back',
                                         style: TextStyle(color: Colors.grey),
                                       ))

@@ -12,11 +12,11 @@ class _HomePageState extends State<HomePage> {
   int _currentIndex = 0;
 
   final List<Widget> _children = [
-    HomeScreen(),
-    MyTeamScreen(),
-    AttendanceScreen(),
-    NotificationScreen(),
-    MoreScreen(),
+    const HomeScreen(),
+    const MyTeamScreen(),
+    const AttendanceScreen(),
+    const NotificationScreen(),
+    const MoreScreen(),
   ];
 
   @override
@@ -46,13 +46,14 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
+      // ignore: sized_box_for_whitespace
       bottomNavigationBar: Container(
         height: 60,
         child: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
           currentIndex: _currentIndex,
           onTap: onTabTapped,
-          items: [
+          items: const [
             BottomNavigationBarItem(
               icon:
                   //ImageIcon(AssetImage('assets/images/home_icon.png'), color: Colors.lightBlue,),
@@ -116,22 +117,25 @@ class HomeScreen extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
+        // ignore: sized_box_for_whitespace
         Container(
           height: 100,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [
+            children: const [
               Spacer(),
+              // App Title Name
               Padding(
-                padding: const EdgeInsets.fromLTRB(50, 20, 0, 0),
+                padding: EdgeInsets.fromLTRB(50, 20, 0, 0),
                 child: Text(
                   'Home',
                   style: TextStyle(fontSize: 30, fontWeight: FontWeight.w400),
                 ),
               ),
               Spacer(),
+              // Circle Profile Picture
               Padding(
-                padding: const EdgeInsets.fromLTRB(0, 20, 20, 0),
+                padding: EdgeInsets.fromLTRB(0, 20, 20, 0),
                 child: CircleAvatar(
                   backgroundImage: AssetImage(
                     'assets/images/profile_pic.png',
@@ -143,18 +147,22 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 20,),
+        // App Body
         Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text(
+            // Greeting to the user
+            const Text(
               'Hi Rashmi!',
               style: TextStyle(fontSize: 40, fontWeight: FontWeight.w500),
             ),
             const SizedBox(height: 16,),
+            // Current day and date
             Text(
                 "${DateFormat('EEEE').format(DateTime.now())}, ${DateFormat('MMMM').format(DateTime.now())} ${DateFormat('d').format(DateTime.now())}", 
-                style: TextStyle(color: Colors.grey, fontSize: 18),),
+                style: const TextStyle(color: Colors.grey, fontSize: 18),),
             const SizedBox(height: 50,),
+            // Mark In Button    
             Container(
               height: 280,
               width: 280,
@@ -166,9 +174,9 @@ class HomeScreen extends StatelessWidget {
                 child: SingleChildScrollView(
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
-                    children: [
+                    children: const [
                       Image(image: AssetImage('assets/images/touch_screen.png',), width: 120, height: 120,),
-                      const SizedBox(height: 14,),
+                      SizedBox(height: 14,),
                       Text('Mark In', style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),)
                     ],
                   ),
@@ -178,23 +186,27 @@ class HomeScreen extends StatelessWidget {
               const SizedBox(
                 height: 14,
               ),
+              // Location Information
+              // ignore: sized_box_for_whitespace
               Container(
                 width: 280,
                 child: Row(
-                  children: [
+                  children: const [
                     Icon(Icons.location_pin),
                     Text('Location: You are not in office premises'),
                   ],
                 ),
               ),
               const SizedBox(height: 50,),
+              // Time information
+              // ignore: sized_box_for_whitespace
               Container(
                 height: 180,
                 child: SingleChildScrollView(
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      VerticalDivider(width: 280, thickness: 2, color: Colors.grey,),
+                      const VerticalDivider(width: 280, thickness: 2, color: Colors.grey,),
                       const SizedBox(height: 8,),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -202,31 +214,31 @@ class HomeScreen extends StatelessWidget {
                         children: [
                           Column(
                             mainAxisSize: MainAxisSize.min,
-                            children: [
+                            children: const [
                               Image(image: AssetImage('assets/images/in_time.png',), width: 60, height: 60,),
-                              const SizedBox(height: 8,),
+                              SizedBox(height: 8,),
                               Text('08:30'),
-                              const SizedBox(height: 8,),
+                              SizedBox(height: 8,),
                               Text('IN TIME', style: TextStyle(color: Colors.grey),)
                             ],
                           ),
                           Column(
                             mainAxisSize: MainAxisSize.min,
-                            children: [
+                            children: const [
                               Image(image: AssetImage('assets/images/out_time.png'), width: 60, height: 60,),
-                              const SizedBox(height: 8,),
+                              SizedBox(height: 8,),
                               Text('05:30'),
-                              const SizedBox(height: 8,),
+                              SizedBox(height: 8,),
                               Text('OUT TIME', style: TextStyle(color: Colors.grey),)
                             ],
                           ),
                           Column(
                             mainAxisSize: MainAxisSize.min,
-                            children: [
+                            children: const [
                               Image(image: AssetImage('assets/images/working_hours.png'), width: 50, height: 50,),
-                              const SizedBox(height: 16,),
+                              SizedBox(height: 16,),
                               Text('06:00'),
-                              const SizedBox(height: 8,),
+                              SizedBox(height: 8,),
                               Text('WORKING HRS', style: TextStyle(color: Colors.grey),)
                             ],
                           ),
@@ -243,6 +255,7 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
+// Pagess for bottom navigation bar
 class MyTeamScreen extends StatelessWidget {
   const MyTeamScreen({Key? key}) : super(key: key);
 

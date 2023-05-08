@@ -15,7 +15,7 @@ class _CaptureImageState extends State<CaptureImage> {
   @override
   Widget build(BuildContext context) {
     Image image = Image(
-      image: AssetImage('assets/images/default_person.png'),
+      image: const AssetImage('assets/images/default_person.png'),
       height: 340,
       width: MediaQuery.of(context).size.width,
     );
@@ -24,7 +24,7 @@ class _CaptureImageState extends State<CaptureImage> {
         toolbarHeight: 80,
         elevation: 0,
         backgroundColor: Colors.white,
-        title: Text(
+        title: const Text(
           'Face Registration',
           style: TextStyle(color: Colors.blue, fontSize: 30),
         ),
@@ -33,6 +33,7 @@ class _CaptureImageState extends State<CaptureImage> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+          // ignore: sized_box_for_whitespace
           Container(
               height: 600,
               child: FittedBox(
