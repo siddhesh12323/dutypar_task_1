@@ -23,14 +23,14 @@ class _RegisterPhotoState extends State<RegisterPhoto> {
           children: [
             ClipRRect(
               borderRadius: BorderRadius.circular(18),
-              child: Image(
+              child: const Image(
                 image: AssetImage('assets/images/scan_face.png'),
               ),
             ),
             const SizedBox(
               height: 34,
             ),
-            Text(
+            const Text(
               'How to register your photo?',
               style: TextStyle(fontSize: 34, fontWeight: FontWeight.w500),
               textAlign: TextAlign.center,
@@ -38,7 +38,7 @@ class _RegisterPhotoState extends State<RegisterPhoto> {
             const SizedBox(
               height: 18,
             ),
-            Column(
+            const Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -46,11 +46,11 @@ class _RegisterPhotoState extends State<RegisterPhoto> {
                 '1. Only your face should be captured',
                 style: TextStyle(fontSize: 18),
             ),
-            const SizedBox(
+            SizedBox(
               height: 4,
             ),
             Text('2. Moving objects should not be present in the background', style: TextStyle(fontSize: 18),),
-            const SizedBox(
+            SizedBox(
               height: 4,
             ),
             Text('3. Make sure you will capture photos without a mask while registering', style: TextStyle(fontSize: 18),),
@@ -79,7 +79,7 @@ class _RegisterPhotoState extends State<RegisterPhoto> {
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(14),
                       color: Colors.green),
-                  child: Center(
+                  child: const Center(
                     child: Text('Register Photo',
                         style: TextStyle(color: Colors.white, fontSize: 16),),
                   )),

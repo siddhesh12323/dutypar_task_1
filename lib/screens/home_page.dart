@@ -120,9 +120,9 @@ class HomeScreen extends StatelessWidget {
         // ignore: sized_box_for_whitespace
         Container(
           height: 100,
-          child: Row(
+          child: const Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
+            children: [
               Spacer(),
               // App Title Name
               Padding(
@@ -170,11 +170,11 @@ class HomeScreen extends StatelessWidget {
                 color: Colors.lightBlueAccent,
                 borderRadius: BorderRadius.circular(140)
               ),
-              child: Center(
+              child: const Center(
                 child: SingleChildScrollView(
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
-                    children: const [
+                    children: [
                       Image(image: AssetImage('assets/images/touch_screen.png',), width: 120, height: 120,),
                       SizedBox(height: 14,),
                       Text('Mark In', style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),)
@@ -190,8 +190,8 @@ class HomeScreen extends StatelessWidget {
               // ignore: sized_box_for_whitespace
               Container(
                 width: 280,
-                child: Row(
-                  children: const [
+                child: const Row(
+                  children: [
                     Icon(Icons.location_pin),
                     Text('Location: You are not in office premises'),
                   ],
@@ -202,19 +202,19 @@ class HomeScreen extends StatelessWidget {
               // ignore: sized_box_for_whitespace
               Container(
                 height: 180,
-                child: SingleChildScrollView(
+                child: const SingleChildScrollView(
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      const VerticalDivider(width: 280, thickness: 2, color: Colors.grey,),
-                      const SizedBox(height: 8,),
+                      VerticalDivider(width: 280, thickness: 2, color: Colors.grey,),
+                      SizedBox(height: 8,),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Column(
                             mainAxisSize: MainAxisSize.min,
-                            children: const [
+                            children: [
                               Image(image: AssetImage('assets/images/in_time.png',), width: 60, height: 60,),
                               SizedBox(height: 8,),
                               Text('08:30'),
@@ -224,7 +224,7 @@ class HomeScreen extends StatelessWidget {
                           ),
                           Column(
                             mainAxisSize: MainAxisSize.min,
-                            children: const [
+                            children: [
                               Image(image: AssetImage('assets/images/out_time.png'), width: 60, height: 60,),
                               SizedBox(height: 8,),
                               Text('05:30'),
@@ -234,7 +234,7 @@ class HomeScreen extends StatelessWidget {
                           ),
                           Column(
                             mainAxisSize: MainAxisSize.min,
-                            children: const [
+                            children: [
                               Image(image: AssetImage('assets/images/working_hours.png'), width: 50, height: 50,),
                               SizedBox(height: 16,),
                               Text('06:00'),
@@ -261,7 +261,7 @@ class MyTeamScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return const Center(
       child: Text('Teams Screen'),
     );
   }
@@ -272,7 +272,7 @@ class AttendanceScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return const Center(
       child: Text('Profile Screen'),
     );
   }
@@ -283,7 +283,7 @@ class NotificationScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return const Center(
       child: Text('Notification Screen'),
     );
   }
@@ -294,7 +294,7 @@ class MoreScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return const Center(
       child: Text('More Screen'),
     );
   }

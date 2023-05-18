@@ -76,6 +76,7 @@ flutter:
     - assets/images/teams_icon.png
     - assets/images/touch_screen.png
     - assets/images/working_hours.png
+    - assets/images/dutypar_logo.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

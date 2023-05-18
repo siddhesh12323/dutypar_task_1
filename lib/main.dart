@@ -1,3 +1,6 @@
+import 'package:dutypar_task_1/screens/login_page.dart';
+import 'package:dutypar_task_1/screens/signup_page.dart';
+import 'package:dutypar_task_1/screens/signup_page2.dart';
 import 'package:flutter/material.dart';
 
 import 'screens/capture_image.dart';
@@ -22,12 +25,15 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Dutypar',
-        initialRoute: '/register_photo',
+        initialRoute: '/login_page',
         routes: {
           '/register_photo': (context) => const RegisterPhoto(),
           '/capture_image': (context) => const CaptureImage(),
           '/submit_image': (context) => const SubmitImage(),
           '/home_page': (context) => const HomePage(),
+          '/login_page':(context) => const LoginPage(),
+          '/signup_page':(context) => const SignUp(),
+          '/signup_page2':(context) => const SignUp2(),
         },
       );
   }

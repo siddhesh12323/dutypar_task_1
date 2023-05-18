@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
+//import 'package:image_picker/image_picker.dart';
 
 class CaptureImage extends StatefulWidget {
   const CaptureImage({super.key});
@@ -50,7 +50,7 @@ class _CaptureImageState extends State<CaptureImage> {
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(14),
                     color: Colors.green),
-                child: Center(
+                child: const Center(
                   child: Text(
                     'Capture',
                     style: TextStyle(color: Colors.white, fontSize: 16),
