@@ -22,6 +22,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Stack(
         children: <Widget>[
           Offstage(
@@ -114,143 +115,262 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        // ignore: sized_box_for_whitespace
-        Container(
-          height: 100,
-          child: const Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Spacer(),
-              // App Title Name
-              Padding(
-                padding: EdgeInsets.fromLTRB(50, 20, 0, 0),
-                child: Text(
-                  'Home',
-                  style: TextStyle(fontSize: 30, fontWeight: FontWeight.w400),
-                ),
-              ),
-              Spacer(),
-              // Circle Profile Picture
-              Padding(
-                padding: EdgeInsets.fromLTRB(0, 20, 20, 0),
-                child: CircleAvatar(
-                  backgroundImage: AssetImage(
-                    'assets/images/profile_pic.png',
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          // ignore: sized_box_for_whitespace
+          Container(
+            height: 88,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(0, 42, 0, 0),
+                  child: Container(
+                    height: 40,
+                    width: 40,
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(20)),
                   ),
-                  radius: 20,
                 ),
-              )
-            ],
-          ),
-        ),
-        const SizedBox(height: 20,),
-        // App Body
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            // Greeting to the user
-            const Text(
-              'Hi Rashmi!',
-              style: TextStyle(fontSize: 40, fontWeight: FontWeight.w500),
+                const Padding(
+                  padding: EdgeInsets.fromLTRB(0, 52, 0, 8),
+                  child: Text(
+                    'Home',
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(0, 42, 0, 0),
+                  child: GestureDetector(
+                    onTap: () {
+                      //! NAVIGATE TO PROFILE PAGE
+                    },
+                    child: const CircleAvatar(
+                      backgroundImage: AssetImage(
+                        'assets/images/profile_pic.png',
+                      ),
+                      radius: 20,
+                    ),
+                  ),
+                ),
+              ],
             ),
-            const SizedBox(height: 16,),
-            // Current day and date
-            Text(
-                "${DateFormat('EEEE').format(DateTime.now())}, ${DateFormat('MMMM').format(DateTime.now())} ${DateFormat('d').format(DateTime.now())}", 
-                style: const TextStyle(color: Colors.grey, fontSize: 18),),
-            const SizedBox(height: 50,),
-            // Mark In Button    
-            Container(
-              height: 280,
-              width: 280,
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          // App Body
+          // Greeting to the user
+          const Text(
+            'Hi Rashmi!',
+            style: TextStyle(fontSize: 32, fontWeight: FontWeight.w500),
+          ),
+          const SizedBox(
+            height: 4,
+          ),
+          // Current day and date
+          Text(
+            "${DateFormat('EEEE').format(DateTime.now())}, ${DateFormat('MMMM').format(DateTime.now())} ${DateFormat('d').format(DateTime.now())}",
+            style: const TextStyle(
+                color: Color.fromARGB(
+                  255,
+                  93,
+                  100,
+                  112,
+                ),
+                fontSize: 16,
+                fontWeight: FontWeight.w500),
+          ),
+          const SizedBox(
+            height: 44,
+          ),
+          // Mark In Button
+          GestureDetector(
+            onTap: () {
+              //!Navigate to mark attendance screen
+              Navigator.pushNamed(context, '/mark_attendance');
+            },
+            child: Container(
+              height: 240,
+              width: 240,
               decoration: BoxDecoration(
-                color: Colors.lightBlueAccent,
-                borderRadius: BorderRadius.circular(140)
-              ),
-              child: const Center(
-                child: SingleChildScrollView(
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Image(image: AssetImage('assets/images/touch_screen.png',), width: 120, height: 120,),
-                      SizedBox(height: 14,),
-                      Text('Mark In', style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),)
-                    ],
+                  color: const Color.fromARGB(255, 79, 166, 255),
+                  borderRadius: BorderRadius.circular(120)),
+              child: const Column(
+                children: [
+                  SizedBox(
+                    height: 27,
                   ),
+                  Image(
+                    image: AssetImage(
+                      'assets/images/touch_screen.png',
+                    ),
+                    width: 100,
+                    height: 117,
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Text(
+                    'Mark In',
+                    style: TextStyle(
+                        fontSize: 32,
+                        fontWeight: FontWeight.w500,
+                        color: Color.fromARGB(
+                          255,
+                          29,
+                          35,
+                          46,
+                        )),
+                  )
+                ],
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 13,
+          ),
+          // Location Information
+          Container(
+            // width: 280,
+            child: const Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(Icons.location_pin),
+                Text(
+                  'Location: You are not in office premises',
+                  style: TextStyle(fontSize: 14, color: Colors.black),
                 ),
-              )
-              ),
-              const SizedBox(
-                height: 14,
-              ),
-              // Location Information
-              // ignore: sized_box_for_whitespace
-              Container(
-                width: 280,
-                child: const Row(
-                  children: [
-                    Icon(Icons.location_pin),
-                    Text('Location: You are not in office premises'),
-                  ],
-                ),
-              ),
-              const SizedBox(height: 50,),
-              // Time information
-              // ignore: sized_box_for_whitespace
-              Container(
-                height: 180,
-                child: const SingleChildScrollView(
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
+              ],
+            ),
+          ),
+          // Time information
+          // ignore: sized_box_for_whitespace
+          const Spacer(),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0, 0, 0, 14),
+            child: Container(
+              height: 130,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Container(
+                    width: MediaQuery.of(context).size.width - 40,
+                    height: 2,
+                    color: const Color.fromARGB(26, 0, 0, 0),
+                  ),
+                  const SizedBox(
+                    height: 8,
+                  ),
+                  const Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      VerticalDivider(width: 280, thickness: 2, color: Colors.grey,),
-                      SizedBox(height: 8,),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        crossAxisAlignment: CrossAxisAlignment.center,
+                      Column(
+                        mainAxisSize: MainAxisSize.min,
                         children: [
-                          Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Image(image: AssetImage('assets/images/in_time.png',), width: 60, height: 60,),
-                              SizedBox(height: 8,),
-                              Text('08:30'),
-                              SizedBox(height: 8,),
-                              Text('IN TIME', style: TextStyle(color: Colors.grey),)
-                            ],
+                          Image(
+                            image: AssetImage(
+                              'assets/images/in_time.png',
+                            ),
+                            width: 48,
+                            height: 48,
                           ),
-                          Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Image(image: AssetImage('assets/images/out_time.png'), width: 60, height: 60,),
-                              SizedBox(height: 8,),
-                              Text('05:30'),
-                              SizedBox(height: 8,),
-                              Text('OUT TIME', style: TextStyle(color: Colors.grey),)
-                            ],
+                          SizedBox(
+                            height: 8,
                           ),
-                          Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Image(image: AssetImage('assets/images/working_hours.png'), width: 50, height: 50,),
-                              SizedBox(height: 16,),
-                              Text('06:00'),
-                              SizedBox(height: 8,),
-                              Text('WORKING HRS', style: TextStyle(color: Colors.grey),)
-                            ],
+                          Text(
+                            '08:30',
+                            style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500,
+                                color: Colors.black),
                           ),
+                          SizedBox(
+                            height: 12,
+                          ),
+                          Text(
+                            'IN TIME',
+                            style: TextStyle(
+                                color: Color.fromARGB(120, 0, 0, 0),
+                                fontSize: 12,
+                                fontWeight: FontWeight.w400),
+                          )
                         ],
-                      )
+                      ),
+                      Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Image(
+                            image: AssetImage('assets/images/out_time.png'),
+                            width: 48,
+                            height: 48,
+                          ),
+                          SizedBox(
+                            height: 8,
+                          ),
+                          Text(
+                            '05:30',
+                            style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500,
+                                color: Colors.black),
+                          ),
+                          SizedBox(
+                            height: 12,
+                          ),
+                          Text(
+                            'OUT TIME',
+                            style: TextStyle(
+                                color: Color.fromARGB(120, 0, 0, 0),
+                                fontSize: 12,
+                                fontWeight: FontWeight.w400),
+                          )
+                        ],
+                      ),
+                      Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Image(
+                            image:
+                                AssetImage('assets/images/working_hours.png'),
+                            width: 47,
+                            height: 44,
+                          ),
+                          SizedBox(
+                            height: 12,
+                          ),
+                          Text(
+                            '06:00',
+                            style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500,
+                                color: Colors.black),
+                          ),
+                          SizedBox(
+                            height: 12,
+                          ),
+                          Text(
+                            'WORKING HRS',
+                            style: TextStyle(
+                                color: Color.fromARGB(120, 0, 0, 0),
+                                fontSize: 12,
+                                fontWeight: FontWeight.w400),
+                          )
+                        ],
+                      ),
                     ],
-                  ),
-                ),
+                  )
+                ],
               ),
-          ],
-        )
-      ],
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

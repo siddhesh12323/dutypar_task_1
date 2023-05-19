@@ -10,9 +10,11 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   List<bool> selections = [true, false];
   bool mobileOrUsername = true;
+  bool showpasswordTextField = false;
   //bool isTyping = false;
   // ignore: prefer_final_fields
   TextEditingController _textEditingController = TextEditingController();
+  TextEditingController _passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -95,10 +97,13 @@ class _LoginPageState extends State<LoginPage> {
                     selections = selections.map((selected) => false).toList();
                     selections[index] = true;
                     if (index == 0) {
+                      //Mobile Number chosen
                       mobileOrUsername = true;
+                      showpasswordTextField = false;
                     }
                     if (index == 1) {
                       mobileOrUsername = false;
+                      showpasswordTextField = true;
                     }
                   });
                 },
@@ -166,6 +171,39 @@ class _LoginPageState extends State<LoginPage> {
               const SizedBox(
                 height: 20,
               ),
+              Visibility(
+                visible: showpasswordTextField,
+                child: Container(
+                  width: 328,
+                  height: 50,
+                  decoration: BoxDecoration(
+                      color: const Color.fromARGB(255, 248, 250, 253),
+                      border: Border.all(
+                          color: const Color.fromARGB(231, 236, 243, 253)),
+                      borderRadius: BorderRadius.circular(8)),
+                  child: Center(
+                    child: Padding(
+                      padding: const EdgeInsets.fromLTRB(16, 0, 0, 0),
+                      child: TextField(
+                        // onChanged: (value) {
+                        //   setState(() {
+                        //     isTyping = !isTyping;
+                        //   });
+                        //   isTyping = true;
+                        // },
+                        decoration: const InputDecoration(
+                          hintText: 'Enter Password',
+                          border: InputBorder.none,
+                        ),
+                        controller: _passwordController,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
               GestureDetector(
                 child: Container(
                   width: 327,
@@ -174,7 +212,7 @@ class _LoginPageState extends State<LoginPage> {
                     color: const Color.fromARGB(255, 0, 127, 255),
                     borderRadius: BorderRadius.circular(8),
                   ),
-                  child: Center(
+                  child: const Center(
                       child: Text(
                     // isTyping ? 'SEND OTP': 'Log In',
                     'Log In',
@@ -206,80 +244,105 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   TextButton(
                       onPressed: () {
-                        //*Navigate to SignUp2
                         showDialog(
-  context: context,
-  builder: (BuildContext context) {
-    return AlertDialog(
-      shadowColor: const Color.fromARGB(64, 38, 36, 131),
-      content: Container(
-        decoration: const BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(8)),
-    //       boxShadow: [
-    //   BoxShadow(
-    //     color: Color.fromARGB(64, 38, 36, 131),
-    //     offset: Offset(0, 2),
-    //     blurRadius: 20,
-    //     //spreadRadius: 0,
-    //   ),
-    // ],
-        ),
-        height: 307,
-        width: 343,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            const SizedBox(height: 32,),
-            const Text('Select Domain', style: TextStyle(fontWeight: FontWeight.w500, fontSize: 28),),
-            const SizedBox(height: 33,),
-            GestureDetector(
-                child: Container(
-                  width: 311,
-                  height: 56,
-                  decoration: BoxDecoration(
-                    color: const Color.fromARGB(255, 0, 127, 255),
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  child: Center(
-                      child: Text(
-                    // isTyping ? 'SEND OTP': 'Log In',
-                    'Office',
-                    style: const TextStyle(
-                        color: Colors.white, fontWeight: FontWeight.w500),
-                  )),
-                ),
-                onTap: () {
-                  //!Navigate to Office;
-                },
-              ),
-              const SizedBox(height: 33,),
-              GestureDetector(
-                child: Container(
-                  width: 327,
-                  height: 56,
-                  decoration: BoxDecoration(
-                    color: const Color.fromARGB(255, 79, 166, 255,),
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  child: Center(
-                      child: Text(
-                    // isTyping ? 'SEND OTP': 'Log In',
-                    'Educational Institute',
-                    style: const TextStyle(
-                        color: Colors.white, fontWeight: FontWeight.w500),
-                  )),
-                ),
-                onTap: () {
-                  //!Navigate to Educational Institute;
-                },
-              ),        
-          ],
-        ),
-      ),
-    );
-  },
-);
-
+                          context: context,
+                          builder: (BuildContext context) {
+                            return AlertDialog(
+                              shadowColor:
+                                  const Color.fromARGB(64, 38, 36, 131),
+                              content: Container(
+                                decoration: const BoxDecoration(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(8)),
+                                  //       boxShadow: [
+                                  //   BoxShadow(
+                                  //     color: Color.fromARGB(64, 38, 36, 131),
+                                  //     offset: Offset(0, 2),
+                                  //     blurRadius: 20,
+                                  //     //spreadRadius: 0,
+                                  //   ),
+                                  // ],
+                                ),
+                                height: 307,
+                                width: 343,
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    const SizedBox(
+                                      height: 32,
+                                    ),
+                                    const Text(
+                                      'Select Domain',
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 28),
+                                    ),
+                                    const SizedBox(
+                                      height: 33,
+                                    ),
+                                    GestureDetector(
+                                      child: Container(
+                                        width: 311,
+                                        height: 56,
+                                        decoration: BoxDecoration(
+                                          color: const Color.fromARGB(
+                                              255, 0, 127, 255),
+                                          borderRadius:
+                                              BorderRadius.circular(8),
+                                        ),
+                                        child: const Center(
+                                            child: Text(
+                                          // isTyping ? 'SEND OTP': 'Log In',
+                                          'Office',
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.w500),
+                                        )),
+                                      ),
+                                      onTap: () {
+                                        //!Navigate to Office;
+                                        Navigator.pushNamed(
+                                            context, '/signup_page2');
+                                      },
+                                    ),
+                                    const SizedBox(
+                                      height: 33,
+                                    ),
+                                    GestureDetector(
+                                      child: Container(
+                                        width: 327,
+                                        height: 56,
+                                        decoration: BoxDecoration(
+                                          color: const Color.fromARGB(
+                                            255,
+                                            79,
+                                            166,
+                                            255,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(8),
+                                        ),
+                                        child: const Center(
+                                            child: Text(
+                                          // isTyping ? 'SEND OTP': 'Log In',
+                                          'Educational Institute',
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.w500),
+                                        )),
+                                      ),
+                                      onTap: () {
+                                        //!Navigate to Educational Institute;
+                                        Navigator.pushNamed(
+                                            context, '/signup_page2');
+                                      },
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            );
+                          },
+                        );
                       },
                       child: const Text(
                         "Sign Up",

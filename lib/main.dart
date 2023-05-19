@@ -1,4 +1,6 @@
+import 'package:dutypar_task_1/screens/image_authentication.dart';
 import 'package:dutypar_task_1/screens/login_page.dart';
+import 'package:dutypar_task_1/screens/mark_attendance.dart';
 import 'package:dutypar_task_1/screens/signup_page.dart';
 import 'package:dutypar_task_1/screens/signup_page2.dart';
 import 'package:flutter/material.dart';
@@ -25,7 +27,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Dutypar',
-        initialRoute: '/login_page',
+        initialRoute: '/home_page',
         routes: {
           '/register_photo': (context) => const RegisterPhoto(),
           '/capture_image': (context) => const CaptureImage(),
@@ -34,6 +36,8 @@ class _MyAppState extends State<MyApp> {
           '/login_page':(context) => const LoginPage(),
           '/signup_page':(context) => const SignUp(),
           '/signup_page2':(context) => const SignUp2(),
+          '/mark_attendance':(context) => const MarkAttendance(),
+          '/authenticate_image':(context) => const AuthenticateImage(),
         },
       );
   }

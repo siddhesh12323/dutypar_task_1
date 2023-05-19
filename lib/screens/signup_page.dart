@@ -236,11 +236,11 @@ class _SignUpState extends State<SignUp> {
                     color: const Color.fromARGB(255, 0, 127, 255),
                     borderRadius: BorderRadius.circular(8),
                   ),
-                  child: Center(
+                  child: const Center(
                       child: Text(
                     // isTyping ? 'SEND OTP': 'Log In',
                     'Login',
-                    style: const TextStyle(
+                    style: TextStyle(
                         color: Colors.white, fontWeight: FontWeight.w500),
                   )),
                 ),
