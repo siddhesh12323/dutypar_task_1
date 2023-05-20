@@ -129,7 +129,9 @@ class _SignUp2State extends State<SignUp2> {
                               onTap: () {
                                 //!Send the OTP for mobile
                                 setState(() {
-                                  isMobileVerified = false;
+                                  if (!isMobileVerified) {
+                                    isMobileVerified = false;
+                                  }
                                 });
                               },
                             ),
@@ -231,7 +233,9 @@ class _SignUp2State extends State<SignUp2> {
                               onTap: () {
                                 //!Send the OTP based on email
                                 setState(() {
-                                  isEmailVerified = false;
+                                  if (!isEmailVerified) {
+                                    isEmailVerified = false;
+                                  }
                                 });
                               },
                             ),
@@ -373,6 +377,9 @@ class _SignUp2State extends State<SignUp2> {
                 ),
                 onTap: () {
                   //Alert dialog
+                  if (isMobileVerified && isEmailVerified) {
+                    showAlertDialog(context);
+                  }
                 },
               ),
             ],
@@ -415,44 +422,264 @@ class _SignUp2State extends State<SignUp2> {
     );
   }
 
-//   showAlertDialog(BuildContext context) {
-//   showDialog(
-//     context: context,
-//     builder: (BuildContext context) {
-//       return AlertDialog(
-//         title: Text('First AlertDialog'),
-//         content: Text('This is the first AlertDialog.'),
-//         actions: [
-//           TextButton(
-//             onPressed: () {
-//               Navigator.of(context).pop(); // Close the first AlertDialog
-//               showSecondAlertDialog(context); // Show the second AlertDialog
-//             },
-//             child: Text('Open Second AlertDialog'),
-//           ),
-//         ],
-//       );
-//     },
-//   );
-// }
+  showAlertDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          shadowColor: const Color.fromARGB(64, 38, 36, 131),
+          content: Container(
+            decoration: const BoxDecoration(
+              borderRadius: BorderRadius.all(Radius.circular(8)),
+              //       boxShadow: [
+              //   BoxShadow(
+              //     color: Color.fromARGB(64, 38, 36, 131),
+              //     offset: Offset(0, 2),
+              //     blurRadius: 20,
+              //     //spreadRadius: 0,
+              //   ),
+              // ],
+            ),
+            height: 330,
+            width: 343,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                const SizedBox(
+                  height: 32,
+                ),
+                const Text(
+                  'Congratulations!',
+                  style: TextStyle(fontWeight: FontWeight.w500, fontSize: 32),
+                ),
+                const SizedBox(
+                  height: 14,
+                ),
+                const Text(
+                  'Rashmi, welcome!',
+                  style: TextStyle(
+                      fontWeight: FontWeight.w700,
+                      fontSize: 16,
+                      color: Color.fromARGB(
+                        255,
+                        93,
+                        100,
+                        112,
+                      )),
+                ),
+                const SizedBox(
+                  height: 36,
+                ),
+                const Text(
+                  'Your account has been successfully created. Kindly login into the app using your registered mobile number.',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      fontWeight: FontWeight.w400,
+                      fontSize: 16,
+                      color: Color.fromARGB(
+                        255,
+                        93,
+                        100,
+                        112,
+                      )),
+                ),
+                const SizedBox(
+                  height: 39,
+                ),
+                GestureDetector(
+                  child: Container(
+                    width: 311,
+                    height: 56,
+                    decoration: BoxDecoration(
+                      color: const Color.fromARGB(255, 0, 127, 255),
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: const Center(
+                        child: Text(
+                      // isTyping ? 'SEND OTP': 'Log In',
+                      'Ok',
+                      style: TextStyle(
+                          color: Colors.white, fontWeight: FontWeight.w500),
+                    )),
+                  ),
+                  onTap: () {
+                    //!Navigate to Office;
+                    Navigator.of(context).pop(); // Close the first AlertDialog
+                    showSecondAlertDialog(context);
+                  },
+                ),
+                const SizedBox(
+                  height: 13,
+                ),
+                GestureDetector(
+                  child: Container(
+                    width: 311,
+                    height: 24,
+                    // decoration: BoxDecoration(
+                    //   color: const Color.fromARGB(
+                    //     255,
+                    //     79,
+                    //     166,
+                    //     255,
+                    //   ),
+                    //   borderRadius:
+                    //       BorderRadius.circular(8),
+                    // ),
+                    child: const Center(
+                        child: Text(
+                      // isTyping ? 'SEND OTP': 'Log In',
+                      'Cancel',
+                      style: TextStyle(
+                          fontSize: 16,
+                          color: Color.fromARGB(
+                            255,
+                            0,
+                            127,
+                            255,
+                          ),
+                          fontWeight: FontWeight.w500),
+                    )),
+                  ),
+                  onTap: () {
+                    //!Navigate to Educational Institute;
+                    Navigator.of(context).pop();
+                  },
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
 
-// showSecondAlertDialog(BuildContext context) {
-//   showDialog(
-//     context: context,
-//     builder: (BuildContext context) {
-//       return AlertDialog(
-//         title: Text('Second AlertDialog'),
-//         content: Text('This is the second AlertDialog.'),
-//         actions: [
-//           TextButton(
-//             onPressed: () {
-//               Navigator.of(context).pop(); // Close the second AlertDialog
-//             },
-//             child: Text('Close'),
-//           ),
-//         ],
-//       );
-//     },
-//   );
-// }
+  showSecondAlertDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          shadowColor: const Color.fromARGB(64, 38, 36, 131),
+          content: Container(
+            decoration: const BoxDecoration(
+              borderRadius: BorderRadius.all(Radius.circular(8)),
+            ),
+            height: 330,
+            width: 343,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                const SizedBox(
+                  height: 32,
+                ),
+                const Text(
+                  "Let's Get Started!",
+                  style: TextStyle(fontWeight: FontWeight.w500, fontSize: 32),
+                ),
+                const SizedBox(
+                  height: 14,
+                ),
+                const Text(
+                  'Hey Rashmi,',
+                  style: TextStyle(
+                      fontWeight: FontWeight.w700,
+                      fontSize: 16,
+                      color: Color.fromARGB(
+                        255,
+                        93,
+                        100,
+                        112,
+                      )),
+                ),
+                const SizedBox(
+                  height: 36,
+                ),
+                const Text(
+                  "Let's get started by registering your smiling face.",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      fontWeight: FontWeight.w400,
+                      fontSize: 16,
+                      color: Color.fromARGB(
+                        255,
+                        93,
+                        100,
+                        112,
+                      )),
+                ),
+                const SizedBox(
+                  height: 39,
+                ),
+                GestureDetector(
+                  child: Container(
+                    width: 311,
+                    height: 56,
+                    decoration: BoxDecoration(
+                      color: const Color.fromARGB(
+                        255,
+                        57,
+                        123,
+                        46,
+                      ),
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: const Center(
+                        child: Text(
+                      // isTyping ? 'SEND OTP': 'Log In',
+                      "Let's Start",
+                      style: TextStyle(
+                          color: Colors.white, fontWeight: FontWeight.w500),
+                    )),
+                  ),
+                  onTap: () {
+                    //!Navigate to Office;
+                    Navigator.pushNamed(context,
+                        '/register_photo'); // Close the first AlertDialog
+                  },
+                ),
+                const SizedBox(
+                  height: 13,
+                ),
+                GestureDetector(
+                  child: Container(
+                    width: 311,
+                    height: 24,
+                    // decoration: BoxDecoration(
+                    //   color: const Color.fromARGB(
+                    //     255,
+                    //     79,
+                    //     166,
+                    //     255,
+                    //   ),
+                    //   borderRadius:
+                    //       BorderRadius.circular(8),
+                    // ),
+                    child: const Center(
+                        child: Text(
+                      // isTyping ? 'SEND OTP': 'Log In',
+                      'Cancel',
+                      style: TextStyle(
+                          fontSize: 16,
+                          color: Color.fromARGB(
+                            255,
+                            0,
+                            127,
+                            255,
+                          ),
+                          fontWeight: FontWeight.w500),
+                    )),
+                  ),
+                  onTap: () {
+                    //!Navigate to Educational Institute;
+                    Navigator.of(context).pop();
+                  },
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
 }

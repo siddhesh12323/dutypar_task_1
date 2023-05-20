@@ -221,7 +221,12 @@ class _LoginPageState extends State<LoginPage> {
                   )),
                 ),
                 onTap: () {
-                  Navigator.pushNamed(context, '/signup_page');
+                  if (showpasswordTextField) {
+                    Navigator.pushNamed(context, '/home_page');
+                  } else {
+                    Navigator.pushNamed(context, '/signup_page');
+                  }
+                  
                 },
               ),
               const SizedBox(

@@ -65,7 +65,7 @@ class _SignUpState extends State<SignUp> {
                     ),
                     child: Center(
                       child: Padding(
-                        padding: const EdgeInsets.fromLTRB(12,2,0,0),
+                        padding: const EdgeInsets.fromLTRB(12, 2, 0, 0),
                         child: TextField(
                           // onChanged: (value) {
                           //   setState(() {
@@ -83,9 +83,7 @@ class _SignUpState extends State<SignUp> {
                             counterText: '',
                           ),
                           style: const TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w500
-                          ),
+                              fontSize: 20, fontWeight: FontWeight.w500),
                           controller: digit1controller,
                         ),
                       ),
@@ -93,7 +91,7 @@ class _SignUpState extends State<SignUp> {
                   ),
                   //Digit 2
                   Padding(
-                    padding: const EdgeInsets.fromLTRB(32,0,32,0),
+                    padding: const EdgeInsets.fromLTRB(32, 0, 32, 0),
                     child: Container(
                       width: 40,
                       height: 35,
@@ -103,7 +101,7 @@ class _SignUpState extends State<SignUp> {
                       ),
                       child: Center(
                         child: Padding(
-                          padding: const EdgeInsets.fromLTRB(12,2,0,0),
+                          padding: const EdgeInsets.fromLTRB(12, 2, 0, 0),
                           child: TextField(
                             maxLength: 1,
                             showCursor: false,
@@ -115,9 +113,7 @@ class _SignUpState extends State<SignUp> {
                               counterText: '',
                             ),
                             style: const TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w500
-                          ),
+                                fontSize: 20, fontWeight: FontWeight.w500),
                             controller: digit2controller,
                           ),
                         ),
@@ -126,7 +122,7 @@ class _SignUpState extends State<SignUp> {
                   ),
                   //Digit 3
                   Padding(
-                    padding: const EdgeInsets.fromLTRB(0,0,32,0),
+                    padding: const EdgeInsets.fromLTRB(0, 0, 32, 0),
                     child: Container(
                       width: 40,
                       height: 35,
@@ -136,7 +132,7 @@ class _SignUpState extends State<SignUp> {
                       ),
                       child: Center(
                         child: Padding(
-                          padding: const EdgeInsets.fromLTRB(12,2,0,0),
+                          padding: const EdgeInsets.fromLTRB(12, 2, 0, 0),
                           child: TextField(
                             showCursor: false,
                             maxLength: 1,
@@ -148,9 +144,7 @@ class _SignUpState extends State<SignUp> {
                               counterText: '',
                             ),
                             style: const TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w500
-                          ),
+                                fontSize: 20, fontWeight: FontWeight.w500),
                             controller: digit3controller,
                           ),
                         ),
@@ -167,7 +161,7 @@ class _SignUpState extends State<SignUp> {
                     ),
                     child: Center(
                       child: Padding(
-                        padding: const EdgeInsets.fromLTRB(12,2,0,0),
+                        padding: const EdgeInsets.fromLTRB(12, 2, 0, 0),
                         child: TextField(
                           showCursor: false,
                           maxLength: 1,
@@ -179,9 +173,7 @@ class _SignUpState extends State<SignUp> {
                             counterText: '',
                           ),
                           style: const TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w500
-                          ),
+                              fontSize: 20, fontWeight: FontWeight.w500),
                           controller: digit4controller,
                         ),
                       ),
@@ -246,6 +238,7 @@ class _SignUpState extends State<SignUp> {
                 ),
                 onTap: () {
                   //* Throw the user in the app
+                  Navigator.pushNamed(context, '/home_page');
                 },
               ),
             ],

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
+import 'my_teams.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -13,7 +15,7 @@ class _HomePageState extends State<HomePage> {
 
   final List<Widget> _children = [
     const HomeScreen(),
-    const MyTeamScreen(),
+    const MyTeamsScreen(),
     const AttendanceScreen(),
     const NotificationScreen(),
     const MoreScreen(),
@@ -376,16 +378,16 @@ class HomeScreen extends StatelessWidget {
 }
 
 // Pagess for bottom navigation bar
-class MyTeamScreen extends StatelessWidget {
-  const MyTeamScreen({Key? key}) : super(key: key);
+// class MyTeamScreen extends StatelessWidget {
+//   const MyTeamScreen({Key? key}) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-      child: Text('Teams Screen'),
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return const Center(
+//       child: Text('Teams Screen'),
+//     );
+//   }
+// }
 
 class AttendanceScreen extends StatelessWidget {
   const AttendanceScreen({Key? key}) : super(key: key);
