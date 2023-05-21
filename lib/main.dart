@@ -27,7 +27,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Dutypar',
-        initialRoute: '/login_page',
+        initialRoute: '/home_page',
         routes: {
           '/register_photo': (context) => const RegisterPhoto(),
           '/capture_image': (context) => const CaptureImage(),

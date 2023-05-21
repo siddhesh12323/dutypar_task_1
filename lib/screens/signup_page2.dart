@@ -440,7 +440,7 @@ class _SignUp2State extends State<SignUp2> {
               //   ),
               // ],
             ),
-            height: 330,
+            height: 350,
             width: 343,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
