@@ -1,3 +1,4 @@
+import 'package:dutypar_task_1/screens/add_user.dart';
 import 'package:dutypar_task_1/screens/image_authentication.dart';
 import 'package:dutypar_task_1/screens/login_page.dart';
 import 'package:dutypar_task_1/screens/mark_attendance.dart';
@@ -38,6 +39,7 @@ class _MyAppState extends State<MyApp> {
           '/signup_page2':(context) => const SignUp2(),
           '/mark_attendance':(context) => const MarkAttendance(),
           '/authenticate_image':(context) => const AuthenticateImage(),
+          '/add_user':(context) => const AddUser(),
         },
       );
   }

@@ -84,6 +84,9 @@ flutter:
     - assets/images/profile2.png
     - assets/images/profile3.png
     - assets/images/schedule.png
+    - assets/images/leftdown.png
+    - assets/images/rightup.png
+    - assets/images/warning.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

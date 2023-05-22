@@ -216,7 +216,7 @@ class _LoginPageState extends State<LoginPage> {
                       child: Text(
                     // isTyping ? 'SEND OTP': 'Log In',
                     'Log In',
-                    style: const TextStyle(
+                    style: TextStyle(
                         color: Colors.white, fontWeight: FontWeight.w500),
                   )),
                 ),
@@ -226,7 +226,6 @@ class _LoginPageState extends State<LoginPage> {
                   } else {
                     Navigator.pushNamed(context, '/signup_page');
                   }
-                  
                 },
               ),
               const SizedBox(
@@ -306,6 +305,7 @@ class _LoginPageState extends State<LoginPage> {
                                       ),
                                       onTap: () {
                                         //!Navigate to Office;
+                                        Navigator.of(context).pop();
                                         Navigator.pushNamed(
                                             context, '/signup_page2');
                                       },
@@ -338,6 +338,7 @@ class _LoginPageState extends State<LoginPage> {
                                       ),
                                       onTap: () {
                                         //!Navigate to Educational Institute;
+                                        Navigator.of(context).pop();
                                         Navigator.pushNamed(
                                             context, '/signup_page2');
                                       },
